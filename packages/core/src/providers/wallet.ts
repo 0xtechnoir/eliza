@@ -279,6 +279,7 @@ const walletProvider: Provider = {
             const provider = new WalletProvider(connection, publicKey);
 
             const porfolio = await provider.getFormattedPortfolio(runtime);
+            console.log("porfolio: ", porfolio);
             return porfolio;
         } catch (error) {
             console.error("Error in wallet provider:", error.message);

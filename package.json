@@ -33,6 +33,7 @@
         "node": ">=22"
     },
     "dependencies": {
+        "@solana/web3.js": "1.95.4",
         "ollama-ai-provider": "^0.16.1",
         "optional": "^0.1.4",
         "sharp": "^0.33.5"

@@ -41,7 +41,7 @@ export class TwitterPostClient extends ClientBase {
     onReady() {
         const generateNewTweetLoop = () => {
             this.generateNewTweet();
-            const randomDelay = Math.floor(Math.random() * 24 * 60 * 60 * 1000); // Random delay within 24 hours
+            const randomDelay = Math.floor(Math.random() * (48 - 24 + 1) + 24) * 60 * 60 * 1000; // Random delay between 24-48 hours
             setTimeout(generateNewTweetLoop, randomDelay);
         };
         generateNewTweetLoop();
