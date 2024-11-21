@@ -1,4 +1,10 @@
+[@ai16z/eliza v1.0.0](../index.md) / ISpeechService
+
 # Interface: ISpeechService
+
+## Extends
+
+- [`Service`](../classes/Service.md)
 
 ## Methods
 
@@ -18,4 +24,4 @@
 
 #### Defined in
 
-[packages/core/src/core/types.ts:607](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/types.ts#L607)
+[packages/core/src/types.ts:650](https://github.com/ai16z/eliza/blob/main/packages/core/src/types.ts#L650)

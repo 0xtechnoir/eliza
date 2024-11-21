@@ -1,3 +1,5 @@
+[@ai16z/eliza v1.0.0](../index.md) / Models
+
 # Type Alias: Models
 
 > **Models**: `object`
@@ -20,30 +22,38 @@
 
 > **groq**: [`Model`](Model.md)
 
-### llama\_cloud
+### llama_cloud
 
-> **llama\_cloud**: [`Model`](Model.md)
+> **llama_cloud**: [`Model`](Model.md)
 
-### llama\_local
+### llama_local
 
-> **llama\_local**: [`Model`](Model.md)
+> **llama_local**: [`Model`](Model.md)
 
 ### google
 
 > **google**: [`Model`](Model.md)
 
-### claude\_vertex
+### claude_vertex
 
-> **claude\_vertex**: [`Model`](Model.md)
+> **claude_vertex**: [`Model`](Model.md)
 
 ### redpill
 
 > **redpill**: [`Model`](Model.md)
 
+### openrouter
+
+> **openrouter**: [`Model`](Model.md)
+
 ### ollama
 
 > **ollama**: [`Model`](Model.md)
 
+### heurist
+
+> **heurist**: [`Model`](Model.md)
+
 ## Defined in
 
-[packages/core/src/core/types.ts:101](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/types.ts#L101)
+[packages/core/src/types.ts:105](https://github.com/ai16z/eliza/blob/main/packages/core/src/types.ts#L105)

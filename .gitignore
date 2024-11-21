@@ -3,6 +3,7 @@ node_modules
 /out
 
 .env
+.env.production
 keypair.json
 concatenated-output.ts
 embedding-cache.json

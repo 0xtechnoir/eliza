@@ -1,3 +1,5 @@
+[@ai16z/eliza v1.0.0](../index.md) / embed
+
 # Function: embed()
 
 > **embed**(`runtime`, `input`): `Promise`\<`number`[]\>
@@ -20,4 +22,4 @@ The embedding of the input.
 
 ## Defined in
 
-[packages/core/src/core/embedding.ts:9](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/embedding.ts#L9)
+[packages/core/src/embedding.ts:88](https://github.com/ai16z/eliza/blob/main/packages/core/src/embedding.ts#L88)

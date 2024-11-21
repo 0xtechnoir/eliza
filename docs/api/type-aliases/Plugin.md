@@ -1,3 +1,5 @@
+[@ai16z/eliza v1.0.0](../index.md) / Plugin
+
 # Type Alias: Plugin
 
 > **Plugin**: `object`
@@ -12,18 +14,22 @@
 
 > **description**: `string`
 
-### actions
+### actions?
 
-> **actions**: [`Action`](../interfaces/Action.md)[]
+> `optional` **actions**: [`Action`](../interfaces/Action.md)[]
 
-### providers
+### providers?
 
-> **providers**: [`Provider`](../interfaces/Provider.md)[]
+> `optional` **providers**: [`Provider`](../interfaces/Provider.md)[]
 
-### evaluators
+### evaluators?
 
-> **evaluators**: [`Evaluator`](../interfaces/Evaluator.md)[]
+> `optional` **evaluators**: [`Evaluator`](../interfaces/Evaluator.md)[]
+
+### services?
+
+> `optional` **services**: [`Service`](../classes/Service.md)[]
 
 ## Defined in
 
-[packages/core/src/core/types.ts:303](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/types.ts#L303)
+[packages/core/src/types.ts:313](https://github.com/ai16z/eliza/blob/main/packages/core/src/types.ts#L313)

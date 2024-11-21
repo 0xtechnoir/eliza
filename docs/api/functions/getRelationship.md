@@ -1,3 +1,5 @@
+[@ai16z/eliza v1.0.0](../index.md) / getRelationship
+
 # Function: getRelationship()
 
 > **getRelationship**(`__namedParameters`): `Promise`\<[`Relationship`](../interfaces/Relationship.md)\>
@@ -18,4 +20,4 @@
 
 ## Defined in
 
-[packages/core/src/core/relationships.ts:18](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/relationships.ts#L18)
+[packages/core/src/relationships.ts:18](https://github.com/ai16z/eliza/blob/main/packages/core/src/relationships.ts#L18)

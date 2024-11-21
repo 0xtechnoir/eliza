@@ -1,3 +1,5 @@
+[@ai16z/eliza v1.0.0](../index.md) / formatActionNames
+
 # Function: formatActionNames()
 
 > **formatActionNames**(`actions`): `string`
@@ -18,4 +20,4 @@ A comma-separated string of action names.
 
 ## Defined in
 
-[packages/core/src/core/actions.ts:54](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/actions.ts#L54)
+[packages/core/src/actions.ts:47](https://github.com/ai16z/eliza/blob/main/packages/core/src/actions.ts#L47)

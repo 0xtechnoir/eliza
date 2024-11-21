@@ -1,10 +1,12 @@
+[@ai16z/eliza v1.0.0](../index.md) / getModel
+
 # Function: getModel()
 
 > **getModel**(`provider`, `type`): `string`
 
 ## Parameters
 
-• **provider**: [`ModelProvider`](../enumerations/ModelProvider.md)
+• **provider**: [`ModelProviderName`](../enumerations/ModelProviderName.md)
 
 • **type**: [`ModelClass`](../enumerations/ModelClass.md)
 
@@ -14,4 +16,4 @@
 
 ## Defined in
 
-[packages/core/src/core/models.ts:179](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/models.ts#L179)
+[packages/core/src/models.ts:242](https://github.com/ai16z/eliza/blob/main/packages/core/src/models.ts#L242)

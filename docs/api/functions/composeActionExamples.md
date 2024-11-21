@@ -1,3 +1,5 @@
+[@ai16z/eliza v1.0.0](../index.md) / composeActionExamples
+
 # Function: composeActionExamples()
 
 > **composeActionExamples**(`actionsData`, `count`): `string`
@@ -23,4 +25,4 @@ A string containing formatted examples of conversations.
 
 ## Defined in
 
-[packages/core/src/core/actions.ts:18](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/actions.ts#L18)
+[packages/core/src/actions.ts:11](https://github.com/ai16z/eliza/blob/main/packages/core/src/actions.ts#L11)

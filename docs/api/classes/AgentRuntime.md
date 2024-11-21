@@ -1,3 +1,5 @@
+[@ai16z/eliza v1.0.0](../index.md) / AgentRuntime
+
 # Class: AgentRuntime
 
 Represents the runtime environment for an agent, handling message processing,
@@ -47,13 +49,19 @@ Optional custom actions.
 
 Optional custom evaluators.
 
+• **opts.plugins?**: [`Plugin`](../type-aliases/Plugin.md)[]
+
 • **opts.providers?**: [`Provider`](../interfaces/Provider.md)[]
 
 Optional context providers.
 
-• **opts.imageGenModel?**: [`ImageGenModel`](../enumerations/ImageGenModel.md)
+• **opts.modelProvider**: [`ModelProviderName`](../enumerations/ModelProviderName.md)
 
-• **opts.modelProvider**: [`ModelProvider`](../enumerations/ModelProvider.md)
+• **opts.services?**: [`Service`](Service.md)[]
+
+Optional custom services.
+
+• **opts.managers?**: [`IMemoryManager`](../interfaces/IMemoryManager.md)[]
 
 • **opts.databaseAdapter**: [`IDatabaseAdapter`](../interfaces/IDatabaseAdapter.md)
 
@@ -71,7 +79,7 @@ Custom fetch function to use for making requests.
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:189](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L189)
+[packages/core/src/runtime.ts:192](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L192)
 
 ## Properties
 
@@ -83,13 +91,13 @@ The ID of the agent
 
 #### Implementation of
 
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`agentId`](../interfaces/IAgentRuntime.md#agentid)
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`agentId`](../interfaces/IAgentRuntime.md#agentId)
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:73](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L73)
+[packages/core/src/runtime.ts:59](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L59)
 
-***
+---
 
 ### serverUrl
 
@@ -99,13 +107,13 @@ The base URL of the server where the agent's requests are processed.
 
 #### Implementation of
 
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`serverUrl`](../interfaces/IAgentRuntime.md#serverurl)
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`serverUrl`](../interfaces/IAgentRuntime.md#serverUrl)
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:77](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L77)
+[packages/core/src/runtime.ts:63](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L63)
 
-***
+---
 
 ### databaseAdapter
 
@@ -115,13 +123,13 @@ The database adapter used for interacting with the database.
 
 #### Implementation of
 
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`databaseAdapter`](../interfaces/IAgentRuntime.md#databaseadapter)
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`databaseAdapter`](../interfaces/IAgentRuntime.md#databaseAdapter)
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:82](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L82)
+[packages/core/src/runtime.ts:68](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L68)
 
-***
+---
 
 ### token
 
@@ -135,9 +143,9 @@ Authentication token used for securing requests.
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:87](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L87)
+[packages/core/src/runtime.ts:73](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L73)
 
-***
+---
 
 ### actions
 
@@ -151,9 +159,9 @@ Custom actions that the agent can perform.
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:92](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L92)
+[packages/core/src/runtime.ts:78](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L78)
 
-***
+---
 
 ### evaluators
 
@@ -161,11 +169,15 @@ Custom actions that the agent can perform.
 
 Evaluators used to assess and guide the agent's responses.
 
+#### Implementation of
+
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`evaluators`](../interfaces/IAgentRuntime.md#evaluators)
+
 #### Defined in
 
-[packages/core/src/core/runtime.ts:97](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L97)
+[packages/core/src/runtime.ts:83](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L83)
 
-***
+---
 
 ### providers
 
@@ -179,141 +191,25 @@ Context providers used to provide context for message generation.
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:102](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L102)
+[packages/core/src/runtime.ts:88](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L88)
 
-***
+---
 
 ### modelProvider
 
-> **modelProvider**: [`ModelProvider`](../enumerations/ModelProvider.md) = `ModelProvider.LLAMALOCAL`
+> **modelProvider**: [`ModelProviderName`](../enumerations/ModelProviderName.md)
 
 The model to use for generateText.
 
 #### Implementation of
 
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`modelProvider`](../interfaces/IAgentRuntime.md#modelprovider)
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`modelProvider`](../interfaces/IAgentRuntime.md#modelProvider)
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:107](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L107)
+[packages/core/src/runtime.ts:93](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L93)
 
-***
-
-### imageGenModel
-
-> **imageGenModel**: [`ImageGenModel`](../enumerations/ImageGenModel.md) = `ImageGenModel.TogetherAI`
-
-The model to use for image generation.
-
-#### Implementation of
-
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`imageGenModel`](../interfaces/IAgentRuntime.md#imagegenmodel)
-
-#### Defined in
-
-[packages/core/src/core/runtime.ts:112](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L112)
-
-***
-
-### llamaService
-
-> **llamaService**: `LlamaService` = `null`
-
-Local Llama if no OpenAI key is present
-
-#### Implementation of
-
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`llamaService`](../interfaces/IAgentRuntime.md#llamaservice)
-
-#### Defined in
-
-[packages/core/src/core/runtime.ts:117](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L117)
-
-***
-
-### speechService
-
-> **speechService**: [`ISpeechService`](../interfaces/ISpeechService.md)
-
-#### Implementation of
-
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`speechService`](../interfaces/IAgentRuntime.md#speechservice)
-
-#### Defined in
-
-[packages/core/src/core/runtime.ts:120](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L120)
-
-***
-
-### transcriptionService
-
-> **transcriptionService**: [`ITranscriptionService`](../interfaces/ITranscriptionService.md)
-
-#### Implementation of
-
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`transcriptionService`](../interfaces/IAgentRuntime.md#transcriptionservice)
-
-#### Defined in
-
-[packages/core/src/core/runtime.ts:122](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L122)
-
-***
-
-### imageDescriptionService
-
-> **imageDescriptionService**: [`IImageRecognitionService`](../interfaces/IImageRecognitionService.md)
-
-#### Implementation of
-
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`imageDescriptionService`](../interfaces/IAgentRuntime.md#imagedescriptionservice)
-
-#### Defined in
-
-[packages/core/src/core/runtime.ts:124](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L124)
-
-***
-
-### browserService
-
-> **browserService**: [`IBrowserService`](../interfaces/IBrowserService.md)
-
-#### Implementation of
-
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`browserService`](../interfaces/IAgentRuntime.md#browserservice)
-
-#### Defined in
-
-[packages/core/src/core/runtime.ts:126](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L126)
-
-***
-
-### videoService
-
-> **videoService**: [`IVideoService`](../interfaces/IVideoService.md)
-
-#### Implementation of
-
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`videoService`](../interfaces/IAgentRuntime.md#videoservice)
-
-#### Defined in
-
-[packages/core/src/core/runtime.ts:128](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L128)
-
-***
-
-### pdfService
-
-> **pdfService**: [`IPdfService`](../interfaces/IPdfService.md)
-
-#### Implementation of
-
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`pdfService`](../interfaces/IAgentRuntime.md#pdfservice)
-
-#### Defined in
-
-[packages/core/src/core/runtime.ts:130](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L130)
-
-***
+---
 
 ### fetch()
 
@@ -346,9 +242,9 @@ Some environments may not have access to the global fetch function and need a cu
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:136](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L136)
+[packages/core/src/runtime.ts:99](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L99)
 
-***
+---
 
 ### character
 
@@ -362,9 +258,9 @@ The character to use for the agent
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:141](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L141)
+[packages/core/src/runtime.ts:104](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L104)
 
-***
+---
 
 ### messageManager
 
@@ -374,13 +270,13 @@ Store messages that are sent and received by the agent.
 
 #### Implementation of
 
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`messageManager`](../interfaces/IAgentRuntime.md#messagemanager)
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`messageManager`](../interfaces/IAgentRuntime.md#messageManager)
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:146](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L146)
+[packages/core/src/runtime.ts:109](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L109)
 
-***
+---
 
 ### descriptionManager
 
@@ -390,29 +286,13 @@ Store and recall descriptions of users based on conversations.
 
 #### Implementation of
 
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`descriptionManager`](../interfaces/IAgentRuntime.md#descriptionmanager)
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`descriptionManager`](../interfaces/IAgentRuntime.md#descriptionManager)
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:151](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L151)
+[packages/core/src/runtime.ts:114](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L114)
 
-***
-
-### factManager
-
-> **factManager**: [`IMemoryManager`](../interfaces/IMemoryManager.md)
-
-Manage the fact and recall of facts.
-
-#### Implementation of
-
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`factManager`](../interfaces/IAgentRuntime.md#factmanager)
-
-#### Defined in
-
-[packages/core/src/core/runtime.ts:156](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L156)
-
-***
+---
 
 ### loreManager
 
@@ -422,13 +302,13 @@ Manage the creation and recall of static information (documents, historical game
 
 #### Implementation of
 
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`loreManager`](../interfaces/IAgentRuntime.md#loremanager)
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`loreManager`](../interfaces/IAgentRuntime.md#loreManager)
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:161](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L161)
+[packages/core/src/runtime.ts:119](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L119)
 
-***
+---
 
 ### documentsManager
 
@@ -438,21 +318,133 @@ Hold large documents that can be referenced
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:166](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L166)
+[packages/core/src/runtime.ts:124](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L124)
 
-***
+---
 
-### fragmentsManager
+### knowledgeManager
 
-> **fragmentsManager**: [`IMemoryManager`](../interfaces/IMemoryManager.md)
+> **knowledgeManager**: [`IMemoryManager`](../interfaces/IMemoryManager.md)
 
 Searchable document fragments
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:171](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L171)
+[packages/core/src/runtime.ts:129](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L129)
+
+---
+
+### services
+
+> **services**: `Map`\<[`ServiceType`](../enumerations/ServiceType.md), [`Service`](Service.md)\>
+
+#### Implementation of
+
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`services`](../interfaces/IAgentRuntime.md#services)
+
+#### Defined in
+
+[packages/core/src/runtime.ts:131](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L131)
+
+---
+
+### memoryManagers
+
+> **memoryManagers**: `Map`\<`string`, [`IMemoryManager`](../interfaces/IMemoryManager.md)\>
+
+#### Defined in
+
+[packages/core/src/runtime.ts:132](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L132)
 
 ## Methods
+
+### registerMemoryManager()
+
+> **registerMemoryManager**(`manager`): `void`
+
+#### Parameters
+
+• **manager**: [`IMemoryManager`](../interfaces/IMemoryManager.md)
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`registerMemoryManager`](../interfaces/IAgentRuntime.md#registerMemoryManager)
+
+#### Defined in
+
+[packages/core/src/runtime.ts:134](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L134)
+
+---
+
+### getMemoryManager()
+
+> **getMemoryManager**(`tableName`): [`IMemoryManager`](../interfaces/IMemoryManager.md)
+
+#### Parameters
+
+• **tableName**: `string`
+
+#### Returns
+
+[`IMemoryManager`](../interfaces/IMemoryManager.md)
+
+#### Implementation of
+
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`getMemoryManager`](../interfaces/IAgentRuntime.md#getMemoryManager)
+
+#### Defined in
+
+[packages/core/src/runtime.ts:149](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L149)
+
+---
+
+### getService()
+
+> **getService**(`service`): _typeof_ [`Service`](Service.md)
+
+#### Parameters
+
+• **service**: [`ServiceType`](../enumerations/ServiceType.md)
+
+#### Returns
+
+_typeof_ [`Service`](Service.md)
+
+#### Implementation of
+
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`getService`](../interfaces/IAgentRuntime.md#getService)
+
+#### Defined in
+
+[packages/core/src/runtime.ts:153](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L153)
+
+---
+
+### registerService()
+
+> **registerService**(`service`): `void`
+
+#### Parameters
+
+• **service**: [`Service`](Service.md)
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`registerService`](../interfaces/IAgentRuntime.md#registerService)
+
+#### Defined in
+
+[packages/core/src/runtime.ts:161](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L161)
+
+---
 
 ### getSetting()
 
@@ -468,13 +460,13 @@ Searchable document fragments
 
 #### Implementation of
 
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`getSetting`](../interfaces/IAgentRuntime.md#getsetting)
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`getSetting`](../interfaces/IAgentRuntime.md#getSetting)
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:392](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L392)
+[packages/core/src/runtime.ts:368](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L368)
 
-***
+---
 
 ### getConversationLength()
 
@@ -490,13 +482,13 @@ The number of recent messages to be kept in memory.
 
 #### Implementation of
 
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`getConversationLength`](../interfaces/IAgentRuntime.md#getconversationlength)
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`getConversationLength`](../interfaces/IAgentRuntime.md#getConversationLength)
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:414](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L414)
+[packages/core/src/runtime.ts:390](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L390)
 
-***
+---
 
 ### registerAction()
 
@@ -516,13 +508,13 @@ The action to register.
 
 #### Implementation of
 
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`registerAction`](../interfaces/IAgentRuntime.md#registeraction)
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`registerAction`](../interfaces/IAgentRuntime.md#registerAction)
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:422](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L422)
+[packages/core/src/runtime.ts:398](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L398)
 
-***
+---
 
 ### registerEvaluator()
 
@@ -542,9 +534,9 @@ The evaluator to register.
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:431](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L431)
+[packages/core/src/runtime.ts:407](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L407)
 
-***
+---
 
 ### registerContextProvider()
 
@@ -564,9 +556,9 @@ The context provider to register.
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:439](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L439)
+[packages/core/src/runtime.ts:415](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L415)
 
-***
+---
 
 ### processActions()
 
@@ -592,17 +584,17 @@ The message to process.
 
 #### Implementation of
 
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`processActions`](../interfaces/IAgentRuntime.md#processactions)
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`processActions`](../interfaces/IAgentRuntime.md#processActions)
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:448](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L448)
+[packages/core/src/runtime.ts:424](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L424)
 
-***
+---
 
 ### evaluate()
 
-> **evaluate**(`message`, `state`?): `Promise`\<`string`[]\>
+> **evaluate**(`message`, `state`?, `didRespond`?): `Promise`\<`string`[]\>
 
 Evaluate the message and state using the registered evaluators.
 
@@ -616,6 +608,10 @@ The message to evaluate.
 
 The state of the agent.
 
+• **didRespond?**: `boolean`
+
+Whether the agent responded to the message.
+
 #### Returns
 
 `Promise`\<`string`[]\>
@@ -628,9 +624,9 @@ The results of the evaluation.
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:520](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L520)
+[packages/core/src/runtime.ts:497](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L497)
 
-***
+---
 
 ### ensureParticipantExists()
 
@@ -656,13 +652,13 @@ An error if the participant cannot be added.
 
 #### Implementation of
 
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`ensureParticipantExists`](../interfaces/IAgentRuntime.md#ensureparticipantexists)
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`ensureParticipantExists`](../interfaces/IAgentRuntime.md#ensureParticipantExists)
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:586](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L586)
+[packages/core/src/runtime.ts:567](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L567)
 
-***
+---
 
 ### ensureUserExists()
 
@@ -692,13 +688,13 @@ The user name to ensure the existence of.
 
 #### Implementation of
 
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`ensureUserExists`](../interfaces/IAgentRuntime.md#ensureuserexists)
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`ensureUserExists`](../interfaces/IAgentRuntime.md#ensureUserExists)
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:602](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L602)
+[packages/core/src/runtime.ts:583](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L583)
 
-***
+---
 
 ### ensureParticipantInRoom()
 
@@ -716,13 +712,13 @@ The user name to ensure the existence of.
 
 #### Implementation of
 
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`ensureParticipantInRoom`](../interfaces/IAgentRuntime.md#ensureparticipantinroom)
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`ensureParticipantInRoom`](../interfaces/IAgentRuntime.md#ensureParticipantInRoom)
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:622](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L622)
+[packages/core/src/runtime.ts:603](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L603)
 
-***
+---
 
 ### ensureConnection()
 
@@ -746,13 +742,13 @@ The user name to ensure the existence of.
 
 #### Implementation of
 
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`ensureConnection`](../interfaces/IAgentRuntime.md#ensureconnection)
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`ensureConnection`](../interfaces/IAgentRuntime.md#ensureConnection)
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:633](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L633)
+[packages/core/src/runtime.ts:614](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L614)
 
-***
+---
 
 ### ensureRoomExists()
 
@@ -777,13 +773,13 @@ An error if the room cannot be created.
 
 #### Implementation of
 
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`ensureRoomExists`](../interfaces/IAgentRuntime.md#ensureroomexists)
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`ensureRoomExists`](../interfaces/IAgentRuntime.md#ensureRoomExists)
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:669](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L669)
+[packages/core/src/runtime.ts:650](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L650)
 
-***
+---
 
 ### composeState()
 
@@ -807,13 +803,13 @@ The state of the agent.
 
 #### Implementation of
 
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`composeState`](../interfaces/IAgentRuntime.md#composestate)
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`composeState`](../interfaces/IAgentRuntime.md#composeState)
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:682](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L682)
+[packages/core/src/runtime.ts:663](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L663)
 
-***
+---
 
 ### updateRecentMessageState()
 
@@ -829,8 +825,8 @@ The state of the agent.
 
 #### Implementation of
 
-[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`updateRecentMessageState`](../interfaces/IAgentRuntime.md#updaterecentmessagestate)
+[`IAgentRuntime`](../interfaces/IAgentRuntime.md).[`updateRecentMessageState`](../interfaces/IAgentRuntime.md#updateRecentMessageState)
 
 #### Defined in
 
-[packages/core/src/core/runtime.ts:1155](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/runtime.ts#L1155)
+[packages/core/src/runtime.ts:1124](https://github.com/ai16z/eliza/blob/main/packages/core/src/runtime.ts#L1124)

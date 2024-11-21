@@ -1,3 +1,5 @@
+[@ai16z/eliza v1.0.0](../index.md) / formatEvaluatorExampleDescriptions
+
 # Function: formatEvaluatorExampleDescriptions()
 
 > **formatEvaluatorExampleDescriptions**(`evaluators`): `string`
@@ -18,4 +20,4 @@ A string that summarizes the descriptions for each evaluator example, formatted 
 
 ## Defined in
 
-[packages/core/src/core/evaluators.ts:114](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/evaluators.ts#L114)
+[packages/core/src/evaluators.ts:110](https://github.com/ai16z/eliza/blob/main/packages/core/src/evaluators.ts#L110)

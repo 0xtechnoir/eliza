@@ -1,3 +1,5 @@
+[@ai16z/eliza v1.0.0](../index.md) / createRelationship
+
 # Function: createRelationship()
 
 > **createRelationship**(`__namedParameters`): `Promise`\<`boolean`\>
@@ -18,4 +20,4 @@
 
 ## Defined in
 
-[packages/core/src/core/relationships.ts:3](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/relationships.ts#L3)
+[packages/core/src/relationships.ts:3](https://github.com/ai16z/eliza/blob/main/packages/core/src/relationships.ts#L3)

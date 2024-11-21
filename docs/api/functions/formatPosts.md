@@ -1,3 +1,5 @@
+[@ai16z/eliza v1.0.0](../index.md) / formatPosts
+
 # Function: formatPosts()
 
 > **formatPosts**(`__namedParameters`): `string`
@@ -18,4 +20,4 @@
 
 ## Defined in
 
-[packages/core/src/core/posts.ts:4](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/posts.ts#L4)
+[packages/core/src/posts.ts:4](https://github.com/ai16z/eliza/blob/main/packages/core/src/posts.ts#L4)

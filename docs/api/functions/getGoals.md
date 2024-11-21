@@ -1,3 +1,5 @@
+[@ai16z/eliza v1.0.0](../index.md) / getGoals
+
 # Function: getGoals()
 
 > **getGoals**(`__namedParameters`): `Promise`\<[`Goal`](../interfaces/Goal.md)[]\>
@@ -22,4 +24,4 @@
 
 ## Defined in
 
-[packages/core/src/core/goals.ts:8](https://github.com/ai16z/eliza/blob/main/packages/core/src/core/goals.ts#L8)
+[packages/core/src/goals.ts:8](https://github.com/ai16z/eliza/blob/main/packages/core/src/goals.ts#L8)
